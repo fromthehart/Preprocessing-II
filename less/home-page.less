@@ -1,21 +1,41 @@
 .home {
+  padding-top: 85px;
+
+  .header-content {
+    border-bottom: 2px dashed @navigation-border;
+
+    img {
+      margin-bottom: 30px;
+    }
+
+    .text-content {
+      .full-width();
+
+      p {
+        padding: 2% 0;
+      }
+    }
+  } // header-content
 
   .content-section {
+    .flex(space-between);
     margin: 30px 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-   
     
     .text-content {
-      width: 48%;
-      padding-right: 1%;
+      .half-width();
+
+      @media @mobile {
+        .full-width();
+      }
     }
 
     .img-content {
-      width: 48%;
+      .half-width();
       padding-left: 1%;
+
+      @media @mobile {
+        .full-width();
+      }
 
       img {
         border-radius: 10px;
@@ -24,8 +44,13 @@
   }
 
   .inverse-content {
+    .flex(space-between);
     padding-bottom: 30px;
     border-bottom: 2px dashed @navigation-border;
+
+    @media @mobile {
+      .flex(@flow: column-reverse wrap);
+    }
 
     .text-content {
       padding-left: 1%;
@@ -42,6 +67,10 @@
     width: 75%;
     margin: 0 auto 30px;
 
+    @media @mobile {
+      .full-width();
+    }
+
     img {
       border-radius: 10px;
     }
@@ -50,12 +79,81 @@
   .content-pick {
     padding-top: 30px;
     border-top: 2px dashed @navigation-border;
-    display: flex;
-    justify-content: space-between;
+    border-bottom: 2px dashed @navigation-border;
+    .flex(space-between);
 
     .destination {
       width: 30%;
-      margin-bottom: 30px;
+      margin-bottom: 35px;
+
+      @media @mobile {
+        .full-width();
+        padding: 0 10%;
+      }
+    }
+
+    button {
+      .button-style(
+        85%, 50px, 10px 0, // Width, height, padding
+        none, 15px, // Border, border-radius
+        @button-bg, @white, @shark, // background-color, color, :hover color
+        2rem // font-size
+      ); 
+
+      @media @mobile {
+        .full-width();
+      }
     }
   }
-}// home
+
+  .book-vacation {
+    .full-width();
+    padding: 30px 0;
+
+    .contact {
+      fieldset {
+        .full-width();
+      }
+      
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="url"],
+      select,
+      textarea {
+        .full-width();
+        background: white;
+        margin: 10px 0 5px;
+        padding: 10px;
+        font-size: 1.6rem;
+      }
+
+      select {
+        height: 50px;
+        color: black;
+      }
+
+      textarea {
+        height: 100px;
+      }
+
+      button {
+        margin-top: 15px;
+        .button-style(
+          200px, 50px, 10px 0, // Width, height, padding
+          none, 15px, // Border, border-radius
+          @button-bg, @white, @shark, // background-color, color, :hover color
+          2rem // font-size
+        ); 
+  
+        @media @tablet {
+          .full-width();
+        }
+
+        @media @mobile {
+          .full-width();
+        }
+      }
+    }
+  }
+}

@@ -15,7 +15,7 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 3.8rem;
 }
 
 h2 {
@@ -40,7 +40,11 @@ img {
 }
 
 .container {
-  max-width: 800px;
-  width: 100%;
+  .full-width();
+  max-width: 775px;
   margin: 0 auto;
+
+  @media @tablet {
+    padding: 0 5%;
+  }
 }
